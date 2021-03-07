@@ -8,12 +8,18 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>Travelog</title>
 </head>
-<body>
-<p align = "center">
+<body style="background-color: #e0e0e0;">
+    
+<p align = "center" style="padding-bottom: 8%;padding-top: 2%;">
     If you don't already have an account, register to create an account
 </p>
-<div class= "container" style = "display:flex; flex-direction: row; flex-wrap:nowrap; width: 80%">
-        <div class="container">
+
+<!-- <img src="https://drive.google.com/file/d/1ZKoKUzSOyFvxLyvVOkw5LFMDFb--08Zn/view?usp=sharing" alt="image"> -->
+<div class= "container" style = "display:flex; flex-direction: row; flex-wrap:nowrap; width: 80% ; box-shadow:  20px 20px 60px #bebebe,
+-20px -20px 60px #ffffff;
+ border-radius: 50px; align-items: center; align-self: center; align-content: center; padding: 2%;">
+
+        <div class="container" style="align-items: center;">
             <div class="row">
                 <div style="width: 30%; margin: 25px auto;">
             <form action="/reglog/register" method = "POST">
@@ -33,32 +39,32 @@
                 <input class="form-control" type="password" name="password" placeholder="password" required>
             </div>
             <div class="form-group">
-                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                <button class="btn btn-lg btn-primary btn-block">Register!</button>
             </div>
         </form>
                 </div>
             </div>
         </div>
     
-<div class="container" >
-    <div class="row">
-        <div style="width: 30%; margin: 25px auto;">
-     <form action="/reglog/login" method = "POST">
-        <div class="form-group">
-            <input class="form-control" type="text" name="username" placeholder="username" required>
+        <div class="container" >
+            <div class="row">
+                <div style="width: 30%; margin: 25px auto;">
+            <form action="/reglog/login" method = "POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="username" placeholder="username" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="password" required>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Login!</button>
+                </div>
+            </form>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="password" required>
-        </div>
-        <div class="form-group">
-            <button class="btn btn-lg btn-primary btn-block">Submit!</button>
-        </div>
-    </form>
-        </div>
-    </div>
-</div>
 </div>
 
-<p align = center>This (part of the) project is developed as a part of Sirius Summer Internship</p>
+<p align = center style="padding-top: 3%;">This Mini project is developed as a part of Sirius Summer Internship</p>
 </body>
 </html> 

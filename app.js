@@ -7,21 +7,19 @@ var LocalStrategy = require('passport-local');
 var User = require('./models/user');
 var VPlace = require('./models/visited');
 var BPlace = require('./models/bucket');
-const dotenv = require('dotenv').config()
-
+require('dotenv').config()
+// const cors = require('cors');
 
 mongoose
 .connect(process.env.MONGODB_URI, 
 {   
-    dbName: process.env.DB_NAME,
-    user: process.env.DB_USER,
-    pass: process.env.DB_PASS,
-    useNewUrlParser:true,
     useUnifiedTopology:true,
+    useNewUrlParser: true,
     useCreateIndex: true
-});
+}).then(console.log("DB CONNECTED"));
 
 app.use(bodyParser.urlencoded({extended:true}));
+// app.use(cors);
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+'/public'));
 
@@ -42,6 +40,7 @@ passport.deserializeUser(User.deserializeUser());
 app.get("/", function(req, res){
     res.redirect("/reglog");
 });
+
 //Registration and login page
 app.get("/reglog", function(req, res){
     res.render('reglog');
@@ -55,8 +54,9 @@ app.post("/reglog/register", function(req, res){
             console.log(err);
             return res.render('reglog-error');
         }
+
         passport.authenticate('local')(req, res, function(){
-        res.redirect('/places');
+            res.redirect('/places');
         })
     })
 });
@@ -65,7 +65,7 @@ app.post("/reglog/register", function(req, res){
 app.post("/reglog/login", passport.authenticate('local', {
     successRedirect: '/places',
     failureRedirect: '/'
-}),function(req,res){
+}),function(req,res){ 
 });
 
 //Logout Logic
@@ -103,6 +103,7 @@ app.post('/places',isLoggedIn,  function(req,res){
     var name = req.body.name;
     var image = req.body.image;
     var description = req.body.description;
+
     if(req.body.visited){
         var newPlace = {name:name, image:image};
         VPlace.create(newPlace, function(err, newlycreated){
@@ -131,12 +132,12 @@ app.get('/places/add', function(req, res){
     res.render('addplace');
 })
 
-
 function isLoggedIn(req, res, next){
-if(req.isAuthenticated()){
-    return next();
-}
-res.redirect('/login');
+    if(req.isAuthenticated()){
+        return next();
+    }
+
+    res.redirect('/login');
 }
 
 //server
