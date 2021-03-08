@@ -9,10 +9,20 @@
     <title>Travelog</title>
 </head>
 <body style="background-color: #e0e0e0;">
+
+    <nav class="navbar navbar-default" style="background: #e0e0e0; border-bottom: #ffffff;">
+        <div class="container-fluid">
+            <div class="navbar-header" style="padding-left: 3%;padding-right: 3%;">
+                <a class="navbar-brand" href="/">Travelog</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                        <li><a href="https://www.linkedin.com/in/navin-ganesh-pandiyan-r-k-496801174/">About Me</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     
-<p align = "center" style="padding-bottom: 8%;padding-top: 2%;">
-    If you don't already have an account, register to create an account
-</p>
 
 <!-- <img src="https://drive.google.com/file/d/1ZKoKUzSOyFvxLyvVOkw5LFMDFb--08Zn/view?usp=sharing" alt="image"> -->
 <div class= "container" style = "display:flex; flex-direction: row; flex-wrap:nowrap; width: 80% ; box-shadow:  20px 20px 60px #bebebe,
@@ -20,6 +30,13 @@
  border-radius: 50px; align-items: center; align-self: center; align-content: center; padding: 2%;">
 
         <div class="container" style="align-items: center;">
+
+            <div>
+                <p align = "center" style="padding-bottom: 1%;padding-top: 1%;">
+                    If you don't already have an account,<br> register to create an account
+                </p>
+            </div>
+
             <div class="row">
                 <div style="width: 30%; margin: 25px auto;">
             <form action="/reglog/register" method = "POST">
@@ -47,6 +64,7 @@
         </div>
     
         <div class="container" >
+
             <div class="row">
                 <div style="width: 30%; margin: 25px auto;">
             <form action="/reglog/login" method = "POST">
